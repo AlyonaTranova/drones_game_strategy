@@ -1,25 +1,23 @@
 # -*- coding: utf-8 -*-
 
-# pip install -r requirements.txt
-
 from astrobox.space_field import SpaceField
-from tranova import TranovaDrone
-from stage_03_harvesters.reaper import ReaperDrone
 from stage_03_harvesters.driller import DrillerDrone
+from stage_03_harvesters.reaper import ReaperDrone
+from stage_04_soldiers.devastator import DevastatorDrone
+from tranova import TranovaDrone
 
-number_of_drones = 5
+NUMBER_OF_DRONES = 5
 
 if __name__ == '__main__':
     scene = SpaceField(
-        speed=4,
-        asteroids_count=20,
+        field=(1200, 700),
+        speed=5,
+        asteroids_count=27,
+        can_fight=True,
     )
-    team_1 = [TranovaDrone() for i in range(number_of_drones)]
-    team_2 = [DrillerDrone() for i in range(number_of_drones)]
+
+    team_2 = [ReaperDrone() for _ in range(NUMBER_OF_DRONES)]
+    team_3 = [DrillerDrone() for _ in range(NUMBER_OF_DRONES)]
+    team_1 = [TranovaDrone() for _ in range(NUMBER_OF_DRONES)]
+    team_4 = [DevastatorDrone() for _ in range(NUMBER_OF_DRONES)]
     scene.go()
-
-# Первый этап: зачёт!
-# Второй этап: зачёт!
-
-# Победы 6/11
-# Третий этап: зачёт!
